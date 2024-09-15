@@ -26,12 +26,10 @@
           // header section end
         ?>
         <div class="row">
-          <div class="row col col-md-6">
             <?php
               // form content
               require "sections/add_new_customer.html";
             ?>
-          </div>
         </div>
         <hr style="border-top: 2px solid #ff5252;">
       </div>

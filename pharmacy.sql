@@ -49,6 +49,7 @@ CREATE TABLE `customers` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(20) COLLATE utf16_bin NOT NULL,
   `CONTACT_NUMBER` varchar(10) COLLATE utf16_bin NOT NULL,
+  `FATHER_NAME` varchar(20) COLLATE utf16_bin NOT NULL,
   `ADDRESS` varchar(100) COLLATE utf16_bin NOT NULL,
   `DOCTOR_NAME` varchar(20) COLLATE utf16_bin NOT NULL,
   `DOCTOR_ADDRESS` varchar(100) COLLATE utf16_bin NOT NULL
@@ -58,12 +59,12 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`ID`, `NAME`, `CONTACT_NUMBER`, `ADDRESS`, `DOCTOR_NAME`, `DOCTOR_ADDRESS`) VALUES
-(4, 'Kiran Suthar', '1234567690', 'Andheri East', 'Anshari', 'Andheri East'),
-(6, 'Aditya', '7365687269', 'Virar West', 'Xyz', 'Virar West'),
-(11, 'Shivam Tiwari', '6862369896', 'Dadar West', 'Dr Kapoor', 'Dadar East'),
-(13, 'Varsha Suthar', '7622369694', 'Rani Station', 'Dr Ramesh', 'Rani Station'),
-(14, 'Prakash Bhattarai', '9802851472', 'Pokhara-16, Dhikidada', 'Hari Bahadur', 'Matepani-12');
+INSERT INTO `customers` (`ID`, `NAME`, `CONTACT_NUMBER`, 'FATHER_NAME', `ADDRESS`, `DOCTOR_NAME`, `DOCTOR_ADDRESS`) VALUES
+(4, 'Kiran Suthar', '1234567690','Aman', 'Andheri East', 'Anshari', 'Andheri East'),
+(6, 'Aditya', '7365687269', 'Alexa', 'Virar West', 'Xyz', 'Virar West'),
+(11, 'Shivam Tiwari', '6862369896', 'Axa','Dadar West', 'Dr Kapoor', 'Dadar East'),
+(13, 'Varsha Suthar', '7622369694', 'Peter', 'Rani Station', 'Dr Ramesh', 'Rani Station'),
+(14, 'Prakash Bhattarai', '9802851472', 'Vader', 'Pokhara-16, Dhikidada', 'Hari Bahadur', 'Matepani-12');
 
 -- --------------------------------------------------------
 

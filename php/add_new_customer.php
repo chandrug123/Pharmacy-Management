@@ -3,6 +3,7 @@
   if($con) {
     $name = ucwords($_GET["name"]);
     $contact_number = $_GET["contact_number"];
+    $father_name = $_GET["father_name"];
     $address = ucwords($_GET["address"]);
     $doctor_name = ucwords($_GET["doctor_name"]);
     $doctor_address = ucwords($_GET["doctor_address"]);
@@ -13,7 +14,7 @@
     if($row)
       echo "Customer ".$row['NAME']." with contact number $contact_number already exists!";
     else {
-      $query = "INSERT INTO customers (NAME, CONTACT_NUMBER, ADDRESS, DOCTOR_NAME, DOCTOR_ADDRESS) VALUES('$name', '$contact_number', '$address', '$doctor_name', '$doctor_address')";
+      $query = "INSERT INTO customers (NAME, CONTACT_NUMBER, FATHER_NAME, ADDRESS, DOCTOR_NAME, DOCTOR_ADDRESS) VALUES('$name', '$contact_number', '$address', '$doctor_name', '$doctor_address')";
       $result = mysqli_query($con, $query);
       if(!empty($result))
   			echo "$name added...";
