@@ -1,0 +1,98 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Dropdown</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h3>Add District</h3>
+<form id="districtForm">
+    <input type="text" id="districtInput" placeholder="Enter district name" required>
+    <button type="submit">Add District</button>
+</form>
+
+<h3>Select District</h3>
+<select id="districtDropdown">
+    <option value="">--Select District--</option>
+</select>
+
+<script>
+    // Function to handle form submission using AJAX
+    $(document).ready(function() {
+        $('#districtForm').on('submit', function(event) {
+            event.preventDefault();  // Prevent form from submitting normally
+
+            const districtName = $('#districtInput').val();  // Get the input value
+            if (districtName) {
+                $.ajax({
+                    url: 'add_district.php',  // PHP file that handles the request
+                    type: 'POST',
+                    data: { district: districtName },
+                    success: function(response) {
+                        if (response) {
+                            // Add the new district to the dropdown
+                            $('#districtDropdown').append(`<option value="${response}">${response}</option>`);
+                            $('#districtInput').val('');  // Clear the input field
+                        } else {
+                            alert('Failed to add district.');
+                        }
+                    },
+                    error: function() {
+                        alert('Error occurred while adding district.');
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+
+form action="php\location_management.php" method="GET" >
+    <div class="col-md-4 col-lg-4">
+        <label class="font-weight-bold" for="distric_other">Add Other Distric</label>
+        <input type="text" class="form-control" placeholder="distric_other" id="distric_other"/>
+        <code class="text-danger small font-weight-bold float-right" id="address_error" style="display: none;"></code>
+      </div>
+      <button type="submit">add</button>
+    </form>
+    <div class="col-md-4 col-lg-4">
+    <select id="district"  name="district" onchange="handledistrict()">
+      <option>Select district</option>
+      <option value="koppal">koppal</option>
+      <option value="bellary">bellary</option>
+      <option value="vijayanagara">vijayanagara</option>
+      <option value="Other">Other</option>
+      </select>
+    </div> 
+      <label for="departmentsDropdown"><b>Departments</b></label>
+      <select class="form-control" id="taluk" name="taluk"></select>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+  function handledistrict()
+  {
+    var district_id = document.getElementById("district");
+    var value = district_id.value;
+    var district = district_id.options[district_id.selectedIndex].text;
+    console.log(district)
+    $.ajax({
+        type: "GET",
+        url: "/Pharmacy-Management/php/location_management.php?distr="+district,
+        data: "distr:" + district,
+        success: function (data) {
+            var s = '<option value="-1">Please Select a Taluq</option>';
+            console.log(data.length);
+            for (var i = 0; i < data.length; i++) {
+                '<option value="' + data[0] + '">' + data[0] + '</option>';
+            }
+            $("#taluk").html(data);
+            console.log(data);
+        }
+    });
+  }
+</script>
