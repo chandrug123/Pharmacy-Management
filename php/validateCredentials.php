@@ -18,16 +18,24 @@
 
   function isAdmin() {
     require "db_connection.php";
+    session_start();
     if($con) {
       $username = $_GET["uname"];
       $password = $_GET["pswd"];
+      if($_SESSION["username"] != '')
+      {
+       // echo "true";
+      //  exit;
+      }
 
       $query = "SELECT * FROM admin_credentials WHERE USERNAME = '$username' AND PASSWORD = '$password'";
       $result = mysqli_query($con, $query);
-      $row = mysqli_fetch_array($result);
-      if($row)  {
+      $row = mysqli_fetch_array($result); 
+      if($row)  {  
         $query = "UPDATE admin_credentials SET IS_LOGGED_IN = 'true'";
         $result = mysqli_query($con, $query);
+        $_SESSION["username"] =$username;
+        $_SESSION["role"] = $row['role'];
         echo "true";
       }
       else

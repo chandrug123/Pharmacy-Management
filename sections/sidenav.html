@@ -51,7 +51,7 @@
       </div> <!-- logo class -->
 
       <!-- dashboard start -->
-      <div class="main-menu-item">
+      <div class="main-menu-item" style="display: <?php echo $_SESSION['role'] == 'admin' ? 'block' : 'none'; ?>">
         <a href="home.php"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
       </div>
       <!-- dashboard end -->
@@ -164,6 +164,22 @@
       	</ul>
       </div>
       <!-- search end -->
+
+
+      <!-- User management start -->
+      <div id="eigth" class="main-menu-item" onclick="showhide(this.id);">
+      	<a href="#">
+      		<i class="fa fa-search"></i><span>User Management</span>
+      		<span class="pull-right-container">
+      			<i class="fa fa-angle-left pull-right"></i>
+      		</span>
+      	</a>
+      	<ul class="treeview-menu" style="display: none;">
+          <li class="treeview"><a href="add-user.php">Add User</a></li>
+          <li class="treeview"><a href="manage_customer.php">User List</a></li>
+      	</ul>
+      </div>
+      <!--  User management end -->
 
     </div> <!-- card-body class -->
   </div> <!-- card  -->

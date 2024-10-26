@@ -24,16 +24,16 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user text-white"></i></span>
               </div>
-              <input name="username" type="text" class="form-control" placeholder="username" onkeyup="validate();" required>
+              <input name="username" type="text" class="form-control" placeholder="username"  required>
             </div> <!--input-group class -->
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key text-white"></i></span>
               </div>
-              <input name="password" type="password" class="form-control" placeholder="password" onkeyup="validate();" required>
+              <input name="password" type="password" class="form-control" placeholder="password"  required>
             </div> <!-- input-group class -->
             <div class="form-group">
-              <button class="btn btn-default btn-block btn-custom">Login</button>
+              <button class="btn btn-default btn-block btn-custom" onclick="validate();">Login</button>
             </div>
           </form><!-- form close -->
         </div> <!-- cord-body class -->
