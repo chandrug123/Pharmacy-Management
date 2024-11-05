@@ -76,22 +76,21 @@
     require "db_connection.php";
     if($con) {
       $query = "SELECT * FROM sales INNER JOIN customers ON sales.CUSTOMER_ID = customers.ID WHERE INVOICE_NUMBER = $invoice_number";
-      var_dump($query);exit;
+      //var_dump($query);exit;
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       $customer_name = $row['NAME'];
-      $address = $row['ADDRESS'];
+      $address = $row['ADDRESS1'];
       $contact_number = $row['CONTACT_NUMBER'];
-      $doctor_name = $row['DOCTOR_NAME'];
-      $doctor_address = $row['DOCTOR_ADDRESS'];
 
-      $query = "SELECT * FROM invoices WHERE INVOICE_NUMBER = $invoice_number";
+      $query = "SELECT * FROM invoices WHERE INVOICE_ID = $invoice_number";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       $invoice_date = $row['INVOICE_DATE'];
       $total_amount = $row['TOTAL_AMOUNT'];
       $total_discount = $row['TOTAL_DISCOUNT'];
       $net_total = $row['NET_TOTAL'];
+      //var_dump($query);exit;
     }
 
     ?>
@@ -117,29 +116,22 @@
         <span class="font-weight-bold">Name : </span><?php echo $customer_name; ?><br>
         <span class="font-weight-bold">Address : </span><?php echo $address; ?><br>
         <span class="font-weight-bold">Contact Number : </span><?php echo $contact_number; ?><br>
-        <span class="font-weight-bold">Doctor's Name : </span><?php echo $doctor_name; ?><br>
-        <span class="font-weight-bold">Doctor's Address : </span><?php echo $doctor_address; ?><br>
       </div>
-      <div class="col-md-3"></div>
 
       <?php
 
       $query = "SELECT * FROM admin_credentials";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
-      $p_name = $row['PHARMACY_NAME'];
-      $p_address = $row['ADDRESS'];
-      $p_email = $row['EMAIL'];
-      $p_contact_number = $row['CONTACT_NUMBER'];
+      $p_name = $row['USERNAME'];
+      $p_address = $row['address'];
+      $p_email = $row['email'];
+      $p_contact_number = $row['contact_number'];
       ?>
 
-      <div class="col-md-4">
-        <span class="h4">Shop Details : </span><br><br>
-        <span class="font-weight-bold"><?php echo $p_name; ?></span><br>
-        <span class="font-weight-bold"><?php echo $p_address; ?></span><br>
-        <span class="font-weight-bold"><?php echo $p_email; ?></span><br>
-        <span class="font-weight-bold">Mob. No.: <?php echo $p_contact_number; ?></span>
-      </div>
+<div class="col-md-4">
+        <span class="font-weight-bold">operated by : </span><?php echo $p_name; ?><br>
+  </div>
       <div class="col-md-1"></div>
     </div>
     <div class="row text-center">
