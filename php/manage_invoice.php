@@ -76,6 +76,7 @@
     require "db_connection.php";
     if($con) {
       $query = "SELECT * FROM sales INNER JOIN customers ON sales.CUSTOMER_ID = customers.ID WHERE INVOICE_NUMBER = $invoice_number";
+      var_dump($query);exit;
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       $customer_name = $row['NAME'];

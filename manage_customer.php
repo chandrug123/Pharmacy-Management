@@ -50,20 +50,9 @@
                     <th style="width: 10%;">Customer ID</th>
             				<th style="width: 13%;">Customer Name</th>
                     <th style="width: 10%;">Customer Age</th>
-                    <th style="width: 10%;">Customer DATE OF BIRTH</th>
                     <th style="width: 13%;">Contact Number</th>
                     <th style="width: 13%;">Alternative Number</th>
-                    <th style="width: 13%;">Father Name</th>
-                    <th style="width: 13%;">Father Occupation</th>
-                    <th style="width: 13%;">Mother Name</th>
-                    <th style="width: 13%;">Mother Occupation</th>
-                    <th style="width: 17%;">Addres1</th>
-                    <th style="width: 17%;">Addres2</th>
-                    <th style="width: 17%;">Adhar Card Number</th>
                     <th style="width: 17%;">Given Card</th>
-                    <th style="width: 13%;">District</th>
-                    <th style="width: 17%;">Taluk</th>
-                    <th style="width: 17%;">Villege</th>
                     <th style="width: 15%;">Action</th>
             			</tr>
             		</thead>

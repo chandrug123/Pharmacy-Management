@@ -57,20 +57,9 @@
       <td><?php echo $row['ID'] ?></td>
       <td><?php echo $row['NAME']; ?></td>
       <td><?php echo $row['AGE']; ?></td>
-      <td><?php echo $row['DATE_OF_BIRTH']; ?></td>
       <td><?php echo $row['CONTACT_NUMBER']; ?></td>
       <td><?php echo $row['ALTERNATIVE_NUMBER']; ?></td>
-      <td><?php echo $row['FATHER_NAME']; ?></td>
-      <td><?php echo $row['FATHER_OCCUPATION']; ?></td>
-      <td><?php echo $row['MOTHER_NAME']; ?></td>
-      <td><?php echo $row['MOTHER_OCCUPATION']; ?></td>
-      <td><?php echo $row['ADDRESS1']; ?></td>
-      <td><?php echo $row['ADDRESS2']; ?></td>
-      <td><?php echo $row['ADHAR_CARD_NUMBER']; ?></td>
       <td><?php echo $row['GIVEN_CARD']; ?></td>
-      <td><?php echo $row['DISTRICT']; ?></td>
-      <td><?php echo $row['TALUK']; ?></td>
-      <td><?php echo $row['VILLEGE']; ?></td>
       <td>
         <button href="" class="btn btn-info btn-sm" onclick="editCustomer(<?php echo $row['ID']; ?>);">
           <i class="fa fa-pencil"></i>
@@ -103,18 +92,6 @@ function showEditOptionsRow($seq_no, $row) {
     <td>
       <input type="number" class="form-control" value="<?php echo $row['CONTACT_NUMBER']; ?>" placeholder="Contact Number" id="customer_contact_number" onblur="validateContactNumber(this.value, 'contact_number_error');">
       <code class="text-danger small font-weight-bold float-right" id="contact_number_error" style="display: none;"></code>
-    </td>
-    <td>
-      <textarea class="form-control" placeholder="Address" id="customer_address" onblur="validateAddress(this.value, 'address_error');"><?php echo $row['ADDRESS']; ?></textarea>
-      <code class="text-danger small font-weight-bold float-right" id="address_error" style="display: none;"></code>
-    </td>
-    <td>
-      <input type="text" class="form-control" value="<?php echo $row['DOCTOR_NAME']; ?>" placeholder="Doctor's Name" id="customer_doctors_name" onkeyup="validateName(this.value, 'doctor_name_error');">
-      <code class="text-danger small font-weight-bold float-right" id="doctor_name_error" style="display: none;"></code>
-    </td>
-    <td>
-      <textarea class="form-control" placeholder="Doctor's Address" id="customer_doctors_address" onblur="validateAddress(this.value, 'doctor_address_error');"><?php echo $row['DOCTOR_ADDRESS']; ?></textarea>
-      <code class="text-danger small font-weight-bold float-right" id="doctor_address_error" style="display: none;"></code>
     </td>
     <td>
       <button href="" class="btn btn-success btn-sm" onclick="updateCustomer(<?php echo $row['ID']; ?>);">

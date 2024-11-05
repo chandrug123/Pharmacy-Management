@@ -32,6 +32,7 @@
 
   if(isset($_GET['action']) && $_GET['action'] == "add_new_invoice")
     addNewInvoice();
+    //addSale();
 
   function isCustomer($name, $contact_number) {
     require "db_connection.php";
