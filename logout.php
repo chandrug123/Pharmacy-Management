@@ -7,8 +7,10 @@
     $result = mysqli_query($con, $query);
   }     
   session_start();
-  $_SESSION["username"] = '';
-  $_SESSION["role"] = '';
+  $_SESSION["username"] = 0;
+  $_SESSION["role"] = 0;
+  $_SESSION["loggedin"] = 0;
+  session_destroy();
   header('Location: index.php');
    exit();
 

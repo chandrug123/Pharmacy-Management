@@ -1,3 +1,11 @@
+<?php
+session_start();
+$username =  $_SESSION["username"];
+$role =  $_SESSION["role"];
+$displayifadmin = ($role == 'admin') ? 'block' : 'none';
+$displayifstaff = ( $role == 'staff') ? 'block' : 'none';
+$displayifpharmacy = ($role == 'pharmacy') ? 'block' : 'none';
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,7 +22,7 @@
     <script src="js/restrict.js"></script>
   </head>
   <body>
-    <?php include "sections/sidenav.html"; ?>
+    <?php include "php/sidenav.php"; ?>
     <div class="container-fluid">
       <div class="container">
         <!-- header section -->
@@ -76,7 +84,7 @@
 
           </div>
 
-          <div class="col col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 7px 0; margin-left: 15px;">
+          <div class="col col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 7px 0; margin-left: 15px;" style="display: <?php echo $displayifadmin; ?>;">
             <div class="todays-report">
               <div class="h5">Todays Report</div>
               <table class="table table-bordered table-striped table-hover">

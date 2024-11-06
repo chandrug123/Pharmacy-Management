@@ -17,16 +17,8 @@ function sendRequest(action, params, callback) {
 }
 
 function validate() {
-  const uname = document.forms["login-form"]["username"].value;
-  const pswd = document.forms["login-form"]["password"].value;
 
-  sendRequest('is_admin', { uname: encodeURIComponent(uname), pswd: encodeURIComponent(pswd) }, function(response) {
-    if (response === "true") {
-      window.location.href = "dashboard.html";
-    } else {
-      alert("Invalid username or password.");
-    }
-  });
+  alert("Invalid username or password.");
 }
 
 function validateAndSetup() {

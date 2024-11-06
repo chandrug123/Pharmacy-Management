@@ -22,6 +22,7 @@ if ($con) {
 function isAdmin($con) {
   $username = $_GET["uname"];
   $password = $_GET["pswd"];
+  echo "<script> alert(); </script>"
 
   // Use prepared statements to avoid SQL injection
   $stmt = $con->prepare("SELECT * FROM admin_credentials WHERE USERNAME = ?");

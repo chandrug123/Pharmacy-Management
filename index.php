@@ -15,7 +15,7 @@
     <div class="container">
       <div class="card m-auto p-2">
         <div class="card-body">
-          <form name="login-form" class="login-form" action="home.php" method="post" onsubmit="return validateCredentials();">
+          <form name="login-form" class="login-form" action="php/user_management.php" method="post" onsubmit="return validateCredentials();">
             <div class="logo">
         			<img src="images/prof.jpg" class="profile"/>
         			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
@@ -33,7 +33,7 @@
               <input name="password" type="password" class="form-control" placeholder="password"  required>
             </div> <!-- input-group class -->
             <div class="form-group">
-              <button class="btn btn-default btn-block btn-custom" onclick="validate();">Login</button>
+              <button class="btn btn-default btn-block btn-custom">Login</button>
             </div>
           </form><!-- form close -->
         </div> <!-- cord-body class -->
