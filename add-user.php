@@ -26,7 +26,7 @@ if ($con) {
         // Get the form values
         $name = ucwords($_POST["name"]);
         $username = $_POST["username"];
-        $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
+        $password = $_POST["password"]; // Hash the password
         $email = $_POST["email"];
         $contact_number = $_POST["contact_number"];
         $alternative_number = $_POST["alternative_number"];
