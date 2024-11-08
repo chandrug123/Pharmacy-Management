@@ -26,9 +26,7 @@
       			<button class="close" style="outline: none;" onclick="document.getElementById('add_new_customer_model').style.display = 'none';"><i class="fa fa-close"></i></button>
       		</div>
       		<div class="modal-body">
-            <?php
-              include('sections/add_new_customer.html');
-            ?>
+          
       		</div>
       	</div>
       </div>

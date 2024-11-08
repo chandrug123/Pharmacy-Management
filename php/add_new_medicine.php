@@ -2,7 +2,7 @@
   require "db_connection.php";
   if($con) {
     $name = ucwords($_GET["name"]);
-    $medicine_type = ucwords($_GET["medicine_type"]);
+    $medicine_type = ucwords($_GET["medicine_type"]) ? ucwords($_GET["medicine_type"]) : 'test';
     $packing = strtoupper($_GET["packing"]);
     $generic_name = ucwords($_GET["generic_name"]);
     $suppliers_name = $_GET["suppliers_name"];

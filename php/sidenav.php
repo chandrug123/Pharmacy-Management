@@ -1,21 +1,41 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('error_log', 'path/to/error_log.txt');
+
+// Start session if not already started
 if (session_status() == PHP_SESSION_NONE) {
-  session_start();
+    session_start();
 }
 
+// Attempt to retrieve session variables
 $username = isset($_SESSION["username"]) ? $_SESSION["username"] : null;
 $role = isset($_SESSION["role"]) ? $_SESSION["role"] : null;
-if($username && $role)
-{
-  $displayifadmin = ($role == 'admin') ? 'block' : 'none';
-  $displayifstaff = ($role == 'admin' ||$role == 'staff') ? 'block' : 'none';
-  $displayifpharmacy = ($role == 'admin' || $role == 'pharmacy') ? 'block' : 'none';
+
+// If session variables are missing, try restarting the session
+if ($username === null || $role === null) {
+    // Restart session
+    session_write_close(); // Close the current session if it's open
+    session_start(); // Restart session
+
+    // Try to fetch the session data again
+    $username = isset($_SESSION["username"]) ? $_SESSION["username"] : null;
+    $role = isset($_SESSION["role"]) ? $_SESSION["role"] : null;
+
+    // Log error if session data is still missing
+    if ($username === null || $role === null) {
+        error_log("Session data missing for username or role.");
+        header('Location: login.php');
+        exit;
+    }
 }
-else
-{
-  header('Location: login.php'); 
-}
+
+// If session data is available, proceed
+$displayifadmin = ($role == 'admin') ? 'block' : 'none';
+$displayifstaff = ($role == 'admin' || $role == 'staff') ? 'block' : 'none';
+$displayifpharmacy = ($role == 'admin' || $role == 'pharmacy') ? 'block' : 'none';
+
 ?>
+
 <script type="text/javascript">
   var pid = "none";
   function showhide(id) {

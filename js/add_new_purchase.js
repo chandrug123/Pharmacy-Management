@@ -229,6 +229,7 @@ function addPurchase() {
       addMedicineStock(medicineStockRow[i].name, medicineStockRow[i].batch_id, medicineStockRow[i].expiry_date, medicineStockRow[i].quantity, medicineStockRow[i].mrp, medicineStockRow[i].rate, invoice_number.value);
     }
     addNewPurchase(suppliers_name.value, invoice_number.value, payment_type.value, invoice_date.value, grand_total.value);
+
   }
 }
 

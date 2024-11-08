@@ -16,17 +16,20 @@
   </head>
   <body>
     <!-- including side navigations -->
-    <?php include("sections/sidenav.html");
-    require "php/db_connection.php"; // Include your database connection file
+    <?php
+ini_set('display_errors', 0);
+ini_set('error_log', 'path/to/error_log.txt');
+
+include("sections/sidenav.html");
+require "php/db_connection.php"; // Include your database connection file
 
 if ($con) {
     // Check if the form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        var_dump("test");
         // Get the form values
         $name = ucwords($_POST["name"]);
         $username = $_POST["username"];
-        $password = $_POST["password"]; // Hash the password
+        $password = $_POST["password"]; // Hash the password if needed
         $email = $_POST["email"];
         $contact_number = $_POST["contact_number"];
         $alternative_number = $_POST["alternative_number"];
@@ -38,16 +41,18 @@ if ($con) {
                   VALUES ('$name', '$username', '$password', '$email', '$contact_number', '$alternative_number', '$role', '$address')";
        
         $result = mysqli_query($con, $query);
-        
-        // Check if the insertion was successful
+
+        // Display success or failure alert message
         if ($result) {
-            echo "<div class='alert alert-success'>User $name added successfully!</div>";
+            echo "<script>alert('User $name added successfully!');</script>";
         } else {
-            echo "<div class='alert alert-danger'>Failed to add user: " . mysqli_error($con) . "</div>";
+            $error_message = mysqli_error($con);
+            echo "<script>alert('Failed to add user: $error_message');</script>";
         }
     }
 }
 ?>
+
 
 
     <div class="container-fluid">
@@ -94,8 +99,8 @@ if ($con) {
     <label for="role">Role:</label>
     <select class="form-control" id="role" name="role" required>
         <option value="" disabled selected>Select Role</option>
-        <option value="Pharmacy">Pharmacy</option>
-        <option value="Staff">Staff</option>
+        <option value="pharmacy">Pharmacy</option>
+        <option value="staff">Staff</option>
     </select>
 </div>
 

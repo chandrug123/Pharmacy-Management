@@ -1,11 +1,3 @@
-<?php
-session_start();
-$username =  $_SESSION["username"];
-$role =  $_SESSION["role"];
-$displayifadmin = ($role == 'admin') ? 'block' : 'none';
-$displayifstaff = ( $role == 'staff') ? 'block' : 'none';
-$displayifpharmacy = ($role == 'pharmacy') ? 'block' : 'none';
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

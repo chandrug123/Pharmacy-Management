@@ -49,14 +49,14 @@
   }
 
   function addStock() {
+    var_dump("calling exit");exit;
     require "db_connection.php";
-    $name = ucwords($_GET['name']);
-    $batch_id = strtoupper($_GET['batch_id']);
-    $expiry_date = $_GET['expiry_date'];
-    $quantity = $_GET['quantity'];
-    $mrp = $_GET['mrp'];
-    $rate = $_GET['rate'];
+    $suppliers_name = ucwords($_GET['suppliers_name']);
     $invoice_number = $_GET['invoice_number'];
+    $payment_type = $_GET['payment_type'];
+    $invoice_date = $_GET['invoice_date'];
+    $grand_total = $_GET['grand_total'];
+    $payment_status = ($payment_type == "Payment Due") ? "DUE" : "PAID";
     if($con) {
       $query = "SELECT * FROM medicines_stock WHERE UPPER(NAME) = '".strtoupper($name)."' AND UPPER(BATCH_ID) = '$batch_id'";
       $result = mysqli_query($con, $query);
