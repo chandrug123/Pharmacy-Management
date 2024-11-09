@@ -58,6 +58,15 @@
               <label class="font-weight-bold" for="customers_address">Address :</label>
               <input id="customers_address" type="text" class="form-control" name="address1" placeholder="Address" disabled>
             </div>
+
+            <div class="col col-md-3 form-group">
+              <label class="font-weight-bold" for="sub_type">Subscripton Type :</label>
+              <input id="sub_type" type="text" class="form-control" name="sub_type" placeholder="subscription type" disabled>
+            </div>
+            <div class="col col-md-2 form-group">
+              <label class="font-weight-bold" for="customers_contact_number">Contact Number :</label>
+              <input id="customers_contact_number" type="number" class="form-control" name="customers_contact_number" placeholder="Contact Number" disabled>
+            </div>
             <div class="col col-md-2 form-group">
               <label class="font-weight-bold" for="invoice_number">Invoice Number :</label>
               <input id="invoice_number" type="text" class="form-control" name="invoice_number" placeholder="Invoice Number" disabled>
@@ -84,10 +93,7 @@
               <button class="btn btn-primary form-control" onclick="document.getElementById('add_new_customer_model').style.display = 'block';">New Customer</button>
             </div>
             <div class="col col-md-1 form-group"></div>
-            <div class="col col-md-2 form-group">
-              <label class="font-weight-bold" for="customers_contact_number">Contact Number :</label>
-              <input id="customers_contact_number" type="number" class="form-control" name="customers_contact_number" placeholder="Contact Number" disabled>
-            </div>
+       
           </div>
           <!-- closing new user button -->
 

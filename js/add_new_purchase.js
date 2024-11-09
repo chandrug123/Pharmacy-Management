@@ -226,6 +226,7 @@ function addPurchase() {
     for(var i = 0; i < row_count - 1; i++) {
       if(isNewMedicine(newMedicine[i].name, newMedicine[i].packing) == "true")
         addNewMedicine(newMedicine[i].name, newMedicine[i].packing, newMedicine[i].generic_name, newMedicine[i].supplier_name);
+      //alert("calling");
       addMedicineStock(medicineStockRow[i].name, medicineStockRow[i].batch_id, medicineStockRow[i].expiry_date, medicineStockRow[i].quantity, medicineStockRow[i].mrp, medicineStockRow[i].rate, invoice_number.value);
     }
     addNewPurchase(suppliers_name.value, invoice_number.value, payment_type.value, invoice_date.value, grand_total.value);
@@ -244,14 +245,31 @@ function addNewMedicine(name, packing, generic_name, supplier_name) {
 }
 
 function addMedicineStock(name, batch_id, expiry_date, quantity, mrp, rate, invoice_number) {
+  console.log(name, batch_id, expiry_date, quantity, mrp, rate, invoice_number);
+  
   var xhttp = new XMLHttpRequest();
+  
   xhttp.onreadystatechange = function() {
-    if(xhttp.readyState = 4 && xhttp.status == 200)
-      xhttp.responseText;
+    if (xhttp.readyState === 4) { // Ensure the request has finished
+      if (xhttp.status === 200) {
+        // Process the response here if needed
+        console.log(xhttp.responseText); // Or do something with the response
+      } else {
+        console.error("Error: " + xhttp.status); // Log error on failure
+      }
+    }
   };
-  xhttp.open("GET", "php/add_new_purchase.php?action=add_stock&name=" + name + "&batch_id=" + batch_id + "&expiry_date=" + expiry_date + "&quantity=" + quantity + "&mrp=" + mrp + "&rate=" + rate + "&invoice_number=" + invoice_number, false);
+  
+  // Using template literals for cleaner URL
+  var url = `php/add_new_purchase.php?action=add_stock&name=${encodeURIComponent(name)}&batch_id=${encodeURIComponent(batch_id)}&expiry_date=${encodeURIComponent(expiry_date)}&quantity=${encodeURIComponent(quantity)}&mrp=${encodeURIComponent(mrp)}&rate=${encodeURIComponent(rate)}&invoice_number=${encodeURIComponent(invoice_number)}`;
+  console.log(url);
+  // Open the request asynchronously (true means asynchronous)
+  xhttp.open("GET", url, true);  
   xhttp.send();
 }
+
+
+
 
 function addNewPurchase(suppliers_name, invoice_number, payment_type, invoice_date, grand_total) {
   var xhttp = new XMLHttpRequest();

@@ -68,7 +68,35 @@ function fillFields(medicine_name, id) {
   fill(medicine_name, 'available_quantity_' + id, 'QUANTITY');
   fill(medicine_name, 'expiry_date_' + id, 'EXPIRY_DATE');
   fill(medicine_name, 'mrp_' + id, 'MRP');
+  var discount;
+
+// Get the value from the element with the id 'sub_type'
+var subType = document.getElementById("sub_type").value;
+
+// Set the discount based on the subType value
+switch (subType) {
+    case "Platinum":
+        discount = 15;
+        break;
+    case "Gold":
+        discount = 10;
+        break;
+    case "Silver":
+        discount = 5;
+        break;
+    case "null":
+    case "":
+        discount = null;  // Handle null or empty cases
+        break;
+    default:
+        discount = null;  // Default case if no match is found
+        break;
+}
+console.log(discount); // Logs the value of the discount variable to the console
+document.getElementById("discount_" + id).value = discount; // Sets the value of the input field with id 'sub_type' to the value of discount
+
   getTotal(id);
+
   var expiry_date = document.getElementById('expiry_date_' + id).value;
   //alert(expiry_date);
   if(checkExpiry(expiry_date, 'medicine_name_error_' + id) != -1)
@@ -94,11 +122,13 @@ function fill(name, field_name, column) {
 function getTotal(id) {
   var mrp = document.getElementById("mrp_" + id).value;
   var qty = document.getElementById("quantity_" + id).value;
-  if(!checkQuantity(qty, 'quantity_error_' + id)) return;
   var discount = document.getElementById("discount_" + id).value;
+  if(!checkQuantity(qty, 'quantity_error_' + id)) return;
   if(!checkValue(discount, 'discount_error_' + id)) return;
   var total = document.getElementById("total_" + id);
   total.value = mrp * qty - (discount * mrp * qty / 100);
+
+
 
   // net total , discount and total Amount
   var parent = document.getElementById('invoice_medicine_list_div');

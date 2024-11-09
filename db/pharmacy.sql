@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2024 at 07:30 AM
+-- Generation Time: Nov 09, 2024 at 08:57 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -48,8 +48,11 @@ CREATE TABLE `admin_credentials` (
 
 INSERT INTO `admin_credentials` (`USERNAME`, `PASSWORD`, `email`, `contact_number`, `alternative_number`, `role`, `created_by`, `created_time`, `id`, `name`, `address`, `IS_LOGGED_IN`) VALUES
 ('admin', 'admin', NULL, NULL, NULL, 'admin', NULL, NULL, 1, NULL, NULL, 0),
-('chandru', 'chandru', 'chandru@gmail.com', '2222', '3333', 'Staff', NULL, NULL, 3, 'Chandru', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', 0),
-('test', 'test', 'test@test.com', '2323232323', '2323232323', 'Pharmacy', NULL, NULL, 4, 'Test', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', 0);
+('chandru', 'chandru', 'chandru@gmail.com', '2222', '3333', 'pharmacy', NULL, NULL, 3, 'Chandru', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', 0),
+('test', '$2y$10$SWiHm.IN72IheDqZ0GD83.ZGD9kf0T2OhDeKh8Lihfm', 'test@test.com', '54545454545', 'dqwd', 'Staff', NULL, NULL, 6, 'Test', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', 0),
+('tttt', 'tttt', 'tttt@tt.tt', '53535353535', '53535353535', 'pharmacy', NULL, NULL, 7, 'Tttt', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', 0),
+('pharmacy', 'pharmacy', 'pharmacy@email.com', '5454545454', '5454545454', 'pharmacy', NULL, NULL, 8, 'Pharmacy', 'cdscds sdvdsv sfvdsv', 0),
+('staff', 'staff', 'staff@staff.staff', '4343434343', '3322222222', 'staff', NULL, NULL, 9, 'Staff', 'sxsacd cdvd jcyds cjyudsc nbdsvchgdscjdsvcndhjvjdsa', 0);
 
 -- --------------------------------------------------------
 
@@ -83,7 +86,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`ID`, `NAME`, `AGE`, `DATE_OF_BIRTH`, `CONTACT_NUMBER`, `ALTERNATIVE_NUMBER`, `FATHER_NAME`, `FATHER_OCCUPATION`, `MOTHER_NAME`, `MOTHER_OCCUPATION`, `ADDRESS1`, `ADDRESS2`, `ADHAR_CARD_NUMBER`, `GIVEN_CARD`, `DISTRICT`, `TALUK`, `VILLEGE`, `DOCTOR_NAME`) VALUES
-(7, 'CHANDRASHEKHAR GANDH', 23, '2024-11-13', 1212121212, 1212121212, 'test fatrher', 'Government Employee', 'fcgf', 'Teacher/Educator', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', '121212121212', 'Gold', 'Koppal', 'Gangavathi', 'GV1', NULL);
+(7, 'CHANDRASHEKHAR GANDH', 23, '2024-11-13', 1212121212, 1212121212, 'test fatrher', 'Government Employee', 'fcgf', 'Teacher/Educator', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', 'BEHIND BUSSTAND\r\nNEAR GIRLS HOSTEL 25TH WARD', '121212121212', 'Gold', 'Koppal', 'Gangavathi', 'GV1', NULL),
+(8, 'Vivek', 44, '2024-11-22', 1212121232, 1212121232, 'dre', 'Government Employee', 'dddd', 'Teacher/Educator', '121212123212121212321212121232', '121212123212121212321212121232', '121212123223', 'Gold', 'Bellary', 'Bellary', 'BV1', NULL);
 
 -- --------------------------------------------------------
 
@@ -110,8 +114,10 @@ INSERT INTO `invoices` (`INVOICE_ID`, `NET_TOTAL`, `INVOICE_DATE`, `CUSTOMER_ID`
 (3, 2656, '2024-10-09', 1, 2656, 0),
 (4, 2626, '2024-10-28', 1, 2626, 0),
 (5, 30, '2024-11-01', 1, 30, 0),
-(6, 60, '2024-11-05', 7, 60, 0),
-(7, 29.4, '2024-11-05', 7, 30, 0.6);
+(8, 12473.5, '2024-11-05', 7, 13130, 656.5),
+(9, 112.94999999999999, '2024-11-05', 8, 112.94999999999999, 0),
+(10, 132, '2024-11-09', 7, 132, 0),
+(11, 1800, '2024-11-09', 7, 2000, 200);
 
 -- --------------------------------------------------------
 
@@ -134,7 +140,15 @@ CREATE TABLE `medicines` (
 
 INSERT INTO `medicines` (`ID`, `NAME`, `PACKING`, `GENERIC_NAME`, `SUPPLIER_NAME`, `medicine_type`) VALUES
 (12, 'Dolo', '10', 'Dolo 650', 'Kiran Pharma', 'Tablet'),
-(13, 'Dolpo', '4', 'Dolo', 'Kiran Pharma', '');
+(13, 'Dolpo', '4', 'Dolo', 'Kiran Pharma', ''),
+(15, 'Demo', '2', 'Demo123', 'Kiran Pharma', ''),
+(16, 'Demo', '3', 'Demo123', 'Kiran Pharma', ''),
+(17, 'Dolo', '2', 'Ddddddd', 'Kiran Pharma', ''),
+(18, 'Test', '3', 'Ttttttt', 'Kiran Pharma', ''),
+(19, 'Dolo', '5', 'Dolo Generic', 'Kiran Pharma', 'test'),
+(20, 'Dolo', '3', 'Test', 'Kiran Pharma', 'test'),
+(21, 'Crosin', '2', 'Crosinn', 'Dfnsfndfndf', 'test'),
+(22, 'Dolo', '23', 'Tttttt', 'Avceve', 'test');
 
 -- --------------------------------------------------------
 
@@ -149,18 +163,19 @@ CREATE TABLE `medicines_stock` (
   `EXPIRY_DATE` varchar(10) COLLATE utf16_bin NOT NULL,
   `QUANTITY` int(11) NOT NULL,
   `MRP` double NOT NULL,
-  `RATE` double NOT NULL
+  `RATE` double NOT NULL,
+  `INVOICE_NUMBER` varchar(255) COLLATE utf16_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
 
 --
 -- Dumping data for table `medicines_stock`
 --
 
-INSERT INTO `medicines_stock` (`ID`, `NAME`, `BATCH_ID`, `EXPIRY_DATE`, `QUANTITY`, `MRP`, `RATE`) VALUES
-(1, 'Crosin', 'CROS12', '12/34', 0, 2626, 26),
-(2, 'Gelusil', 'G327', '12/42', 1, 15, 12),
-(3, 'Dolo', 'DOLO327', '01/26', 0, 30, 24),
-(4, 'Nicip Plus', 'NI325', '05/22', 3, 32.65, 28);
+INSERT INTO `medicines_stock` (`ID`, `NAME`, `BATCH_ID`, `EXPIRY_DATE`, `QUANTITY`, `MRP`, `RATE`, `INVOICE_NUMBER`) VALUES
+(1, 'Crosin', 'CROS12', '12/34', 29, 2626, 26, NULL),
+(2, 'Gelusil', 'G327', '12/42', 0, 15, 12, NULL),
+(4, 'Nicip Plus', 'NI325', '05/26', 0, 32.65, 28, NULL),
+(6, 'Dolo', 'E3445', '12/26', 380, 100, 50, '343');
 
 -- --------------------------------------------------------
 
@@ -190,7 +205,23 @@ INSERT INTO `purchases` (`SUPPLIER_NAME`, `INVOICE_NUMBER`, `VOUCHER_NUMBER`, `P
 ('Kiran Pharma', 223, 6, '2024-11-01', 460, 'PAID'),
 ('Kiran Pharma', 323233, 7, '2024-11-04', 50, 'PAID'),
 ('Kiran Pharma', 24443, 8, '2024-11-03', 300, 'PAID'),
-('Kiran Pharma', 2323, 9, '2024-11-04', 66, 'PAID');
+('Kiran Pharma', 2323, 9, '2024-11-04', 66, 'PAID'),
+('Kiran Pharma', 3434343, 10, '2024-11-05', 66, 'PAID'),
+('Dfnsfndfndf', 23233, 11, '2024-11-04', 2, 'PAID'),
+('Kiran Pharma', 2323322, 12, '2024-11-04', 2, 'PAID'),
+('Kiran Pharma', 23, 13, '2024-11-04', 18, 'DUE'),
+('Kiran Pharma', 4543444, 14, '2024-11-08', 212, 'DUE'),
+('Kiran Pharma', 4543444, 15, '2024-11-08', 212, 'DUE'),
+('Kiran Pharma', 6576, 16, '2024-11-05', 360, 'PAID'),
+('Kiran Pharma', 65762, 17, '2024-11-05', 360, 'PAID'),
+('Kiran Pharma', 6576223, 18, '2024-11-05', 360, 'PAID'),
+('Kiran Pharma', 23334, 19, '2024-11-09', 344, 'PAID'),
+('Kiran Pharma', 233344, 20, '2024-11-09', 344, 'PAID'),
+('Dtdxtkmtdshrrhhsrjrs', 213, 21, '2024-10-09', 90, 'PAID'),
+('Dfnsfndfndf', 232132, 22, '2024-11-09', 128, 'PAID'),
+('Kiran Pharma', 2, 23, '2024-11-09', 33, 'PAID'),
+('Avceve', 244, 24, '2024-11-09', 40, 'PAID'),
+('Dtdxtkmtdshrrhhsrjrs', 343, 25, '2024-11-09', 20000, 'PAID');
 
 -- --------------------------------------------------------
 
@@ -218,7 +249,12 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`SALE_ID`, `CUSTOMER_ID`, `INVOICE_NUMBER`, `MEDICINE_NAME`, `BATCH_ID`, `EXPIRY_DATE`, `QUANTITY`, `MRP`, `DISCOUNT`, `TOTAL`, `CREATED_AT`, `UPDATED_AT`) VALUES
-(1, 7, 7, 'Dolo', 'DOLO327', '0000-00-00', 1, '30.00', '2.00', '29.40', '2024-11-05 06:29:29', '2024-11-05 06:29:29');
+(1, 7, 7, 'Dolo', 'DOLO327', '0000-00-00', 1, '30.00', '2.00', '29.40', '2024-11-05 06:29:29', '2024-11-05 06:29:29'),
+(2, 7, 8, 'Crosin', 'CROS12', '0000-00-00', 5, '2626.00', '5.00', '12473.50', '2024-11-05 12:36:00', '2024-11-05 12:36:00'),
+(3, 8, 9, 'Nicip Plus', 'NI325', '0000-00-00', 3, '32.65', '0.00', '97.95', '2024-11-05 15:16:40', '2024-11-05 15:16:40'),
+(4, 8, 9, 'Gelusil', 'G327', '0000-00-00', 1, '15.00', '0.00', '15.00', '2024-11-05 15:16:40', '2024-11-05 15:16:40'),
+(5, 7, 10, 'Dolo', 'CDSC', '0000-00-00', 6, '22.00', '0.00', '132.00', '2024-11-09 06:40:10', '2024-11-09 06:40:10'),
+(6, 7, 11, 'Dolo', 'E3445', '0000-00-00', 20, '100.00', '10.00', '1800.00', '2024-11-09 07:27:54', '2024-11-09 07:27:54');
 
 -- --------------------------------------------------------
 
@@ -318,43 +354,43 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `admin_credentials`
 --
 ALTER TABLE `admin_credentials`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `INVOICE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `INVOICE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `medicines_stock`
 --
 ALTER TABLE `medicines_stock`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `VOUCHER_NUMBER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `VOUCHER_NUMBER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `SALE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `SALE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
