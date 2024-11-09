@@ -25,7 +25,7 @@
         <!-- header section end -->
 
         <!-- form content -->
-        <div class="row">
+        <div class="row" style="display: <?php echo $displayifadmin; ?>;">
           <div class="row col col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
             <?php
@@ -77,7 +77,7 @@
           </div>
 
           <div class="col col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 7px 0; margin-left: 15px;" style="display: <?php echo $displayifadmin; ?>;">
-            <div class="todays-report">
+            <div class="todays-report" style="display: <?php echo $displayifadmin; ?>;">
               <div class="h5">Todays Report</div>
               <table class="table table-bordered table-striped table-hover">
                 <tbody>
@@ -135,13 +135,22 @@
                 </div>
               ';
             }
-            createSection2('address-card', 'new_invoice.php', 'Create New Invoice');
-            createSection2('handshake', 'add_customer.php', 'Add New Customer');
-            createSection2('shopping-bag', 'add_medicine.php', 'Add New Medicine');
-            createSection2('group', 'add_supplier.php', 'Add New Supplier');
-            createSection2('bar-chart', 'add_purchase.php', 'Add New Purchase');
-            createSection2('book', 'sales_report.php', 'Sales Report');
-            createSection2('book', 'purchase_report.php', 'Purchase Report');
+            if($displayifadmin == "block")
+            {
+              createSection2('book', 'sales_report.php', 'Sales Report');
+              createSection2('book', 'purchase_report.php', 'Purchase Report');
+            }
+            if($displayifpharmacy == "block")
+            {
+              createSection2('address-card', 'new_invoice.php', 'Create New Invoice');
+              createSection2('shopping-bag', 'add_medicine.php', 'Add New Medicine');
+              createSection2('group', 'add_supplier.php', 'Add New Supplier');
+              createSection2('bar-chart', 'add_purchase.php', 'Add New Purchase');
+            }
+            if($displayifstaff == "block")
+            {
+              createSection2('handshake', 'add_customer.php', 'Add New Customer');
+            }
           ?>
 
         </div>

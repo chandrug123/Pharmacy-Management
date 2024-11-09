@@ -84,12 +84,11 @@ $displayifpharmacy = ($role == 'admin' || $role == 'pharmacy') ? 'block' : 'none
   <div class="card">
     <div class="card-body">
       <div class="logo" style="display: <?php echo $displayifadmin; ?>;">
-        <img src="images/prof.jpg" class="profile"/>
         <h1 class="logo-caption"><span class="tweak">A</span>dmin</h1>
       </div> <!-- logo class -->
 
       <!-- dashboard start -->
-      <div class="main-menu-item" style="display: <?php echo $displayifadmin; ?>;">
+      <div class="main-menu-item">
         <a href="home.php"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
       </div>
       <!-- dashboard end -->
