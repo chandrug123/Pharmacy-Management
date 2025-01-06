@@ -139,16 +139,44 @@
           </div>
         </div>
       </div><br>
-      <div class="row col col-md-8">
-        <div class="col col-md-4"><label for="generic_name" class="font-weight-bold">&nbsp;If new medicine, generic name : </label></div>
-        <div class="col col-md-8">
-          <input type="text" class="form-control" placeholder="Generic Name" name="generic_name">
-          <code class="text-danger small font-weight-bold float-right" id="generic_name_error_<?php echo $row_number; ?>" style="display: none;"></code>
-        </div>
-      </div>
+<div class="row align-items-center mb-3">
+  <!-- Generic Name -->
+  <div class="col-md-6">
+    <label for="generic_name" class="font-weight-bold">Generic Name (if new):</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter Generic Name"
+      id="generic_name_<?php echo $row_number; ?>"
+      name="generic_name"
+      onChange="myFunction()"
+    />
+    <code
+      class="text-danger small font-weight-bold float-right"
+      id="generic_name_error_<?php echo $row_number; ?>"
+      style="display: none;"
+    ></code>
+  </div>
+
+  <!-- Medicine Type -->
+  <div class="col-md-4 col-lg-6 form-group">
+  <label class="font-weight-bold" for="medicine_type">Medicine Type</label>
+  <select name="medicine_type" id="medicine_type_<?php echo $row_number; ?>"  class="form-control">
+      <option value="tablet">Tablet</option>
+      <option value="syrup">Syrup</option>
+      <option value="powder">Powder</option>
+      <option value="oral_drops ">Oral Drops </option>
+      <option value="nasal_drops"> nasal drops</option>
+      <option value="others">others</option>
+  </select>
+</div>
+</div>
+
       <div class="col col-md-12">
         <hr class="col-md-12" style="padding: 0px;">
       </div>
       <?php
   }
 ?>
+
+

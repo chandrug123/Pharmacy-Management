@@ -80,6 +80,7 @@
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       $customer_name = $row['NAME'];
+      $subscription = $row['GIVEN_CARD'];
       $address = $row['ADDRESS1'];
       $contact_number = $row['CONTACT_NUMBER'];
 
@@ -113,11 +114,11 @@
       <div class="col-md-1"></div>
       <div class="col-md-4">
         <span class="h4">Customer Details : </span><br><br>
-        <span class="font-weight-bold">Name : </span><?php echo $customer_name; ?><br>
-        <span class="font-weight-bold">Address : </span><?php echo $address; ?><br>
-        <span class="font-weight-bold">Contact Number : </span><?php echo $contact_number; ?><br>
+        <span class="font-weight-bold">NAME : </span><?php echo $customer_name; ?><br>
+        <span class="font-weight-bold" style="background-color = yello;">CARD HOLDING : </span><?php echo $subscription; ?><br>
+        <span class="font-weight-bold">CONTACT NUMBER : </span><?php echo $contact_number; ?><br>
+        <span class="font-weight-bold">ADDRESS : </span><?php echo $address; ?><br>
       </div>
-
       <?php
 
       $query = "SELECT * FROM admin_credentials";
@@ -129,9 +130,7 @@
       $p_contact_number = $row['contact_number'];
       ?>
 
-<div class="col-md-4">
-        <span class="font-weight-bold">operated by : </span><?php echo $p_name; ?><br>
-  </div>
+
       <div class="col-md-1"></div>
     </div>
     <div class="row text-center">

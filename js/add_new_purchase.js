@@ -14,11 +14,12 @@ class MedicineStock {
 }
 
 class NewMedicine {
-  constructor(name, packing, generic_name, supplier_name) {
+  constructor(name, packing, generic_name, supplier_name,  medicine_type) {
     this.name = name;
     this.packing = packing;
     this.generic_name = generic_name;
     this.supplier_name = supplier_name;
+    this.medicine_type = medicine_type;
   }
 }
 
@@ -82,6 +83,7 @@ function checkInvoice(invoice_number, error) {
 }
 
 function isNewMedicine(name, packing) {
+  console.log("calling isnewmedicine");
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(xhttp.readyState = 4 && xhttp.status == 200)
@@ -166,6 +168,10 @@ function addPurchase() {
 
       var amount = elements[0].children[7].children[0].children[0];
 
+      
+  var generic_name1 = document.getElementById("generic_name_" + i).value;
+  var medicine_type = document.getElementById("medicine_type_" + i).value;
+
       var generic_name = elements[2].children[1].children[0];
       var generic_name_error = elements[2].children[1].children[1];
       generic_name_error.style.display = "none";
@@ -216,7 +222,7 @@ function addPurchase() {
         //alert("row perfect...");
         // go ahead and store row date
         medicineStockRow[i-1] = new MedicineStock(medicine_name.value, batch_id.value, expiry_date.value, quantity.value, mrp.value, rate.value);
-        newMedicine[i-1] = new NewMedicine(medicine_name.value, packing.value, generic_name.value, suppliers_name.value);
+        newMedicine[i-1] = new NewMedicine(medicine_name.value, packing.value, generic_name1, suppliers_name.value,  medicine_type);
       }
       if(!flag)
         return false;
@@ -225,22 +231,27 @@ function addPurchase() {
     // insert data into table
     for(var i = 0; i < row_count - 1; i++) {
       if(isNewMedicine(newMedicine[i].name, newMedicine[i].packing) == "true")
-        addNewMedicine(newMedicine[i].name, newMedicine[i].packing, newMedicine[i].generic_name, newMedicine[i].supplier_name);
+        
+  console.log("calling inside and flag= "+flag);
+        addNewMedicine(newMedicine[i].name, newMedicine[i].packing, generic_name1, suppliers_name.value, medicine_type);
       //alert("calling");
       addMedicineStock(medicineStockRow[i].name, medicineStockRow[i].batch_id, medicineStockRow[i].expiry_date, medicineStockRow[i].quantity, medicineStockRow[i].mrp, medicineStockRow[i].rate, invoice_number.value);
     }
+    console.log("calling outside ");
     addNewPurchase(suppliers_name.value, invoice_number.value, payment_type.value, invoice_date.value, grand_total.value);
 
   }
 }
 
-function addNewMedicine(name, packing, generic_name, supplier_name) {
+function addNewMedicine(name, packing, generic_name, supplier_name, medicine_type) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(xhttp.readyState = 4 && xhttp.status == 200)
       alert("New medicine " + xhttp.responseText);
   };
-  xhttp.open("GET", "php/add_new_medicine.php?name=" + name + "&packing=" + packing + "&generic_name=" + generic_name + "&suppliers_name=" + supplier_name, false);
+  console.log("calling");
+  console.log("php/add_new_medicine.php?name=" + name + "&packing=" + packing + "&generic_name=" + generic_name + "&suppliers_name=" + supplier_name + "&medicine_type=" + medicine_type);
+  xhttp.open("GET", "php/add_new_medicine.php?name=" + name + "&packing=" + packing + "&generic_name=" + generic_name + "&suppliers_name=" + supplier_name + "&medicine_type=" + medicine_type, false);
   xhttp.send();
 }
 
