@@ -149,7 +149,6 @@
       placeholder="Enter Generic Name"
       id="generic_name_<?php echo $row_number; ?>"
       name="generic_name"
-      onChange="myFunction()"
     />
     <code
       class="text-danger small font-weight-bold float-right"
