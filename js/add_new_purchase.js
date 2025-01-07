@@ -141,6 +141,9 @@ function addPurchase() {
     var newMedicine = new Array(row_count-1);
     //alert(newMedicine[0] == null);
 
+    var generic_name1 =[];
+    var medicine_type =[];
+
     for(var i = 1; i < row_count; i++) {
       var elements_count = medicine_info[i].childElementCount;
       var elements = medicine_info[i].children;
@@ -169,8 +172,8 @@ function addPurchase() {
       var amount = elements[0].children[7].children[0].children[0];
 
       
-  var generic_name1 = document.getElementById("generic_name_" + i).value;
-  var medicine_type = document.getElementById("medicine_type_" + i).value;
+    generic_name1[i-1] = document.getElementById("generic_name_" + i).value;
+    medicine_type[i-1] = document.getElementById("medicine_type_" + i).value;
 
       var generic_name = elements[2].children[1].children[0];
       var generic_name_error = elements[2].children[1].children[1];
@@ -222,7 +225,7 @@ function addPurchase() {
         //alert("row perfect...");
         // go ahead and store row date
         medicineStockRow[i-1] = new MedicineStock(medicine_name.value, batch_id.value, expiry_date.value, quantity.value, mrp.value, rate.value);
-        newMedicine[i-1] = new NewMedicine(medicine_name.value, packing.value, generic_name1, suppliers_name.value,  medicine_type);
+        newMedicine[i-1] = new NewMedicine(medicine_name.value, packing.value, generic_name1[i], suppliers_name.value,  medicine_type[i]);
       }
       if(!flag)
         return false;
@@ -233,7 +236,7 @@ function addPurchase() {
       if(isNewMedicine(newMedicine[i].name, newMedicine[i].packing) == "true")
         
   console.log("calling inside and flag= "+flag);
-        addNewMedicine(newMedicine[i].name, newMedicine[i].packing, generic_name1, suppliers_name.value, medicine_type);
+        addNewMedicine(newMedicine[i].name, newMedicine[i].packing, generic_name1[i], suppliers_name.value, medicine_type[i]);
       //alert("calling");
       addMedicineStock(medicineStockRow[i].name, medicineStockRow[i].batch_id, medicineStockRow[i].expiry_date, medicineStockRow[i].quantity, medicineStockRow[i].mrp, medicineStockRow[i].rate, invoice_number.value);
     }
