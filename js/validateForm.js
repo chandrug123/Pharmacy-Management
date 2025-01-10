@@ -195,11 +195,20 @@ function addMedicine() {
     generic_name.focus();
   else {
     var xhttp = new XMLHttpRequest();
-  	xhttp.onreadystatechange = function() {
-  		if(xhttp.readyState = 4 && xhttp.status == 200)
-  			document.getElementById("medicine_acknowledgement").innerHTML = xhttp.responseText;
-  	};
-  	xhttp.open("GET", "php/add_new_medicine.php?name=" + name.value + "&packing=" + packing.value + "&generic_name=" + generic_name.value + "&suppliers_name=" + suppliers_name.value+ "&medicine_type=" + medicine_type.value, true);
-  	xhttp.send();
+xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4) {
+        if (xhttp.status == 200) {
+            // Display success message
+            document.getElementById("medicine_acknowledgement").innerHTML = xhttp.responseText;
+            alert("Success: Medicine added successfully!");
+        } else {
+            // Display failure message
+            alert("Error: Failed to add the medicine.");
+        }
+    }
+};
+xhttp.open("GET", "php/add_new_medicine.php?name=" + name.value + "&packing=" + packing.value + "&generic_name=" + generic_name.value + "&suppliers_name=" + suppliers_name.value + "&medicine_type=" + medicine_type.value, true);
+xhttp.send();
+
   }
 }

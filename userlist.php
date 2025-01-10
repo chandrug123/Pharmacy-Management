@@ -69,5 +69,30 @@
         <hr style="border-top: 2px solid #ff5252;">
       </div>
     </div>
+
+    <script>
+function deleteUser(id) {
+    if (confirm('Are you sure you want to delete this user?')) {
+        // Send AJAX request to delete the user
+        $.ajax({
+            url: 'controllers/deleteUser.php', // The PHP file that will handle the deletion
+            type: 'POST',
+            data: { id: id }, // Send the user ID as POST data
+            success: function(response) {
+                if (response == 'success') {
+                    alert('User deleted successfully!');
+                    // Optionally reload the page or remove the row from the table
+                    location.reload(); // Or you could update the table dynamically
+                } else {
+                    alert('Failed to delete user.');
+                }
+            },
+            error: function() {
+                alert('Error occurred while trying to delete user.');
+            }
+        });
+    }
+}
+</script>
   </body>
 </html>

@@ -54,7 +54,6 @@ if ($con) {
 ?>
 
 
-
 <div class="container-fluid">
       <div class="container">
         <!-- header section -->
@@ -73,18 +72,40 @@ if ($con) {
                   <label for="name">Name:</label>
                   <input type="text" class="form-control" id="name" name="name" required>
                 </div>
-
                 <div class="form-group">
                   <label for="contact_number">Contact Number:</label>
                   <input type="tel" class="form-control" id="contact_number" name="contact_number" required>
                 </div>
-                
+              </div>
+              
+              <!-- Right Column -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="alternative_number">Alternative Number:</label>
+                  <input type="tel" class="form-control" id="alternative_number" name="alternative_number">
+                </div>
+              </div>
+            </div>
+
+            <!-- Username, Password, and Role in one row -->
+            <div class="row">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="username">Username:</label>
                   <input type="text" class="form-control" id="username" name="username" required>
                 </div>
-
-
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="text" class="form-control" id="password" name="password" required>
+                </div>
+              </div>
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="role">Role:</label>
                   <select class="form-control" id="role" name="role" required>
@@ -94,31 +115,12 @@ if ($con) {
                   </select>
                 </div>
               </div>
-              
-              <!-- Right Column -->
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="email">Email:</label>
-                  <input type="email" class="form-control" id="email" name="email" required>
-                </div>
+            </div>
 
-
-                
-                <div class="form-group">
-                  <label for="alternative_number">Alternative Number:</label>
-                  <input type="tel" class="form-control" id="alternative_number" name="alternative_number">
-                </div>
-
-                <div class="form-group">
-                  <label for="password">Password:</label>
-                  <input type="text" class="form-control" id="password" name="password" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="address">Address:</label>
-                  <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
-                </div>
-              </div>
+            <!-- Address -->
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">Add User</button>

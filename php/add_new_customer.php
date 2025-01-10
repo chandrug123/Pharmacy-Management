@@ -18,6 +18,10 @@ if($con) {
     $taluk = ucwords($_POST["taluk"]);
     $villege = ucwords($_POST["villege"]);
 
+    // $created_date = date("Y-m-d H:i:s"); // Current date and time
+    // $last_updated_date = date("Y-m-d H:i:s"); 
+    // $updated_by =  $_SESSION["username"]
+
     $query = "SELECT * FROM customers WHERE CONTACT_NUMBER = '$contact_number'";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);

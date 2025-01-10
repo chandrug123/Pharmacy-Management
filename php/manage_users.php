@@ -35,7 +35,7 @@ function showUsers($id) {
     require "db_connection.php";
     if($con) {
         $seq_no = 0;
-        $query = "SELECT * FROM admin_credentials";
+        $query = "SELECT * FROM admin_credentials where id != 1;";
         $result = mysqli_query($con, $query);
         while($row = mysqli_fetch_array($result)) {
             $seq_no++;
@@ -56,7 +56,7 @@ function showUserRow($seq_no, $row) {
         <td><?php echo $row['contact_number']; ?></td>
         <td><?php echo $row['role']; ?></td>
         <td>
-            <button class="btn btn-info btn-sm" onclick="editUser(<?php echo $row['id']; ?>);">
+            <button style="display:none" class="btn btn-info btn-sm" onclick="editUser(<?php echo $row['id']; ?>);">
                 <i class="fa fa-pencil"></i>
             </button>
             <button class="btn btn-danger btn-sm" onclick="deleteUser(<?php echo $row['id']; ?>);">
@@ -82,7 +82,7 @@ function showEditOptionsRow($seq_no, $row) {
             <input type="text" class="form-control" value="<?php echo $row['PHONE']; ?>" placeholder="Phone" id="user_phone">
         </td>
         <td>
-            <button class="btn btn-success btn-sm" onclick="updateUser(<?php echo $row['id']; ?>);">
+            <button style="display:none" class="btn btn-success btn-sm" onclick="updateUser(<?php echo $row['id']; ?>);">
                 <i class="fa fa-edit"></i>
             </button>
             <button class="btn btn-danger btn-sm" onclick="cancel();">
@@ -90,6 +90,9 @@ function showEditOptionsRow($seq_no, $row) {
             </button>
         </td>
     </tr>
+
+
+
     <?php
 }
 
@@ -113,4 +116,5 @@ function searchUser($text) {
         }
     }
 }
+
 ?>

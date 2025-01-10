@@ -61,9 +61,6 @@
       <td><?php echo $row['ALTERNATIVE_NUMBER']; ?></td>
       <td><?php echo $row['GIVEN_CARD']; ?></td>
       <td>
-        <button href="" class="btn btn-info btn-sm" onclick="editCustomer(<?php echo $row['ID']; ?>);">
-          <i class="fa fa-pencil"></i>
-        </button>
         <button class="btn btn-danger btn-sm" onclick="deleteCustomer(<?php echo $row['ID']; ?>);">
           <i class="fa fa-trash"></i>
         </button>
